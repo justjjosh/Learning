@@ -12,4 +12,17 @@ test = Solution()
 nums = [3,2,4]
 target = 6
 print(test.twoSum(nums, target))
-        
+
+#contains duplicate
+class Solutions(object):
+    def containsDuplicate(self, nums: list[int]) -> bool:
+        found_numbers = set()
+        for value in nums:
+            if value in found_numbers:
+                return True
+            found_numbers.add(value)
+        return False
+    
+test = Solutions()
+nums = [3,2,4,3]
+print(test.containsDuplicate(nums))
