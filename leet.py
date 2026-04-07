@@ -52,8 +52,20 @@ class Solution:
         else:
             return False
 
-
-s = "car"
-t = "crr"
-test = Solution()
-print(test.isAnagram(s, t))
+#Replace element with greatest element on the right hand side
+#make the last element in the array -1 since there are no elements to its right
+class Solution:
+    def replaceElements(self, arr: list[int]) -> list[int]:
+        #input example arr = [17, 18, 5, 4 6, 1], output: [18, 6, 6, 6, 1, -1]
+        #reverse
+        #get the initial max for the last index = -1
+        #compare with the current index
+        initial_max = -1
+        for i in range(len(arr)-1, -1, -1):
+            #i becomes 5-4-3-2-1
+            current_value = arr[i] #current value becomes 1
+            arr[i] = initial_max #the index of the current value becomes -1
+            #comparing
+            new_max = max(current_value, initial_max) #comparing -1 to 1
+            initial_max = new_max #setting our initial max to the new max
+        return arr #returns the arr after the loop finishes
