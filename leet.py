@@ -27,7 +27,7 @@ class Solutions(object):
 nums = [3,2,4,3]
 print(test.containsDuplicate(nums))"""
 
-
+#valid anagram
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
