@@ -94,3 +94,18 @@ class Solution:
             else:
                 found_numbers[value] = 1 #if not initialize the value to count 0
         return max(found_numbers, found_numbers.get) #return the key with the maximum count.
+    
+#leetcode majority element second solution reducing space coplexity to O(1)
+class Solution:
+    def majElement(self, nums: list) -> int:
+        candidate = None
+        count = 0
+        for num in nums:
+            if count == 0:
+                candidate = num
+            if candidate == num:
+                count += 1
+            else:
+                count -= 1
+        if count != 0:
+            return candidate
