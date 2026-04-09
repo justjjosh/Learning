@@ -82,3 +82,15 @@ class Solution:
             j += 1
 
         return i == len(s)#checks if i got to the last index, if yes it means we have found all the letters in the order that is required.
+
+#solved leetcode majority element
+#return the number that appears most frequently in an array of integer
+class Solution:
+    def majElement(self, nums: list) -> int:
+        found_numbers = {} #create an empty hashmaps to store found values and counts
+        for value in nums: #loop through the values in nums
+            if value in found_numbers: #if the value alredy exist
+                found_numbers[value] += 1 #add one to its count
+            else:
+                found_numbers[value] = 1 #if not initialize the value to count 0
+        return max(found_numbers, found_numbers.get) #return the key with the maximum count.
