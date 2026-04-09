@@ -69,3 +69,28 @@ class Solution:
             new_max = max(current_value, initial_max) #comparing -1 to 1
             initial_max = new_max #setting our initial max to the new max
         return arr #returns the arr after the loop finishes
+    
+#is Subsequence leetcode problem
+#provided you have a string s = "abc" and t = "abcde", return true if s is subsequence of t without changing the order in t, i.e i.e., "ace" is a subsequence of "abcde" while "aec" is not.
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        i = 0
+        j = 0
+        while i < len(s) and j < len(t):
+            if s[i] == t[j]:
+                i += 1
+            j += 1
+
+        return i == len(s)#checks if i got to the last index, if yes it means we have found all the letters in the order that is required.
+
+#solved leetcode majority element
+#return the number that appears most frequently in an array of integer
+class Solution:
+    def majElement(self, nums: list) -> int:
+        found_numbers = {} #create an empty hashmaps to store found values and counts
+        for value in nums: #loop through the values in nums
+            if value in found_numbers: #if the value alredy exist
+                found_numbers[value] += 1 #add one to its count
+            else:
+                found_numbers[value] = 1 #if not initialize the value to count 0
+        return max(found_numbers, found_numbers.get) #return the key with the maximum count.
