@@ -109,3 +109,14 @@ class Solution:
                 count -= 1
         if count != 0:
             return candidate
+        
+#solved leetcode longestcommonprefix
+class Solution:
+    def longestcommonprefix(self, strs: list) -> str:
+        ref = ""
+        for i in range(len(strs[0])):
+            for w in strs:
+                if i == len(w) or w[i] != strs[0][i]:
+                    return ref
+            ref += strs[0][i]
+        return ref
