@@ -113,10 +113,10 @@ class Solution:
 #solved leetcode longestcommonprefix
 class Solution:
     def longestcommonprefix(self, strs: list) -> str:
-        ref = ""
-        for i in range(len(strs[0])):
-            for w in strs:
-                if i == len(w) or w[i] != strs[0][i]:
+        ref = "" #creates an empty string
+        for i in range(len(strs[0])): #i takes values of 0 - len(strs[0])-1
+            for w in strs: #loops through every string in the array i.e w is one word at a time
+                if i == len(w) or w[i] != strs[0][i]: #the main comparism, if we hit the length of the word, return ref immediately
                     return ref
-            ref += strs[0][i]
-        return ref
+            ref += strs[0][i] #append strs[0][i] which becomes our reference to ref
+        return ref #return our string of prefix
