@@ -120,3 +120,31 @@ class Solution:
                     return ref
             ref += strs[0][i] #append strs[0][i] which becomes our reference to ref
         return ref #return our string of prefix
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        L = 0
+        R = len(s) - 1
+        
+        while L < R:
+            
+            # 1. Left pointer hit garbage? Step forward.
+            if not s[L].isalnum():
+                L += 1
+                
+            # 2. Right pointer hit garbage? Step backward.
+            elif not s[R].isalnum():
+                R -= 1
+                
+            # 3. BOTH pointers are sitting on valid letters/numbers!
+            else:
+                # Compare them (making sure they are both lowercase)
+                if s[L].lower() != s[R].lower():
+                    return False
+                
+                # If they matched, we successfully checked them! 
+                # Move BOTH pointers inward to check the next pair.
+                L += 1
+                R -= 1
+                
+        return True
