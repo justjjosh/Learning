@@ -148,3 +148,32 @@ class Solution:
                 R -= 1
                 
         return True
+    
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        #using the two pointer method
+        L = 0 #left pointer
+        R = len(s) - 1 #right pointer
+
+        while L < R:
+
+            if not s[L].isalnum():
+                L += 1
+
+            elif not s[R].isalnum():
+                R -= 1
+
+            else:
+                if s[L].lower() != s[R].lower():
+                    return False
+                L += 1
+                R -= 1
+            
+        return True
+    
+#Solved leetcode's mirror distance of an interger
+class Solution:
+    def mirrordistance(self, n: int) -> int:
+        reversed_int = int(str(n)[::-1]) #convert n into a string and then reverse it and convert back into an integer
+        return abs(n - reversed_int)
