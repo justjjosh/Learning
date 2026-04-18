@@ -177,3 +177,17 @@ class Solution:
     def mirrordistance(self, n: int) -> int:
         reversed_int = int(str(n)[::-1]) #convert n into a string and then reverse it and convert back into an integer
         return abs(n - reversed_int)
+
+#solved leetcode's remove duplicates from sorted array in place
+class Solution:
+    def removeduplicate(self, nums: list) -> int:
+        i = 1
+        j = 1
+        while j < len(nums):
+            if nums[i - 1] == nums[j]:
+                j += 1
+            else:
+                nums[i] = nums[j]
+                i += 1
+                j += 1
+        return i
