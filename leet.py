@@ -181,13 +181,13 @@ class Solution:
 #solved leetcode's remove duplicates from sorted array in place
 class Solution:
     def removeduplicate(self, nums: list) -> int:
-        i = 1
-        j = 1
+        i = 1 #initialize writer
+        j = 1 #initialize reader
         while j < len(nums):
             if nums[i - 1] == nums[j]:
-                j += 1
+                j += 1 #move j
             else:
                 nums[i] = nums[j]
-                i += 1
-                j += 1
-        return i
+                i += 1 #move i
+                j += 1 #then move j
+        return i #return the count of i 
