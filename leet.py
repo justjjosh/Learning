@@ -191,3 +191,19 @@ class Solution:
                 i += 1 #move i
                 j += 1 #then move j
         return i #return the count of i 
+
+#solved leetcode's Two Sum II - Input Array Is Sorted
+class Solution:
+    def twosun(self, numbers: list, target: int) -> list[int]:
+        L = 0 #create a left pointer
+        R = len(numbers) - 1 #a right pointer
+        while L < R:
+            current_sum = numbers[L] + numbers[R] #get the sums of the values
+            if current_sum == target:
+                return [L + 1, R + 1] #if the sum is found, increment L and R by one and return the values in a list
+            
+            elif current_sum > target: #else if the current sum is greater than target it means we need to look for lesser numbers so move R backwards by one step
+                R -= 1
+
+            else: #if non of the conditions above are true, it means we need to move L to the next number
+                L += 1
